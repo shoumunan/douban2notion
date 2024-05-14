@@ -258,7 +258,6 @@ def get_properties(dict1, dict2):
             property = {"select": {"name": value}}        
         elif type==MULTI_SELECT:
             property = {"multi_select": [{"name": name} for name in value]}
-            print(property)
         elif type == RELATION:
             property = {"relation": [{"id": id} for id in value]}
         if property:

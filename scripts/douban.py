@@ -132,7 +132,15 @@ def insert_movie():
                 ]
             if subject.get("actors"):
                 print(f"{subject.get('actors')}")
-                movie["演员"] = [x.get("name").replace(",","") for x in subject.get("actors")[0:100] if x.get("name")]
+                l = []
+                actors = subject.get("actors")[0:100]
+                for actor in actors:
+                    if actor.get("name"):
+                        if "/" in actor.get("name"):
+                            l.extend(actor.get("name").split("/").strip())
+                        else:
+                            l.append(actor.get("name"))  
+                movie["演员"] = l
                 print(f"actor size = {len(movie.get('演员'))}")
             if subject.get("directors"):
                 movie["导演"] = [
