@@ -137,7 +137,7 @@ def insert_movie():
                 for actor in actors:
                     if actor.get("name"):
                         if "/" in actor.get("name"):
-                            l.extend(actor.get("name").split("/").strip())
+                            l.extend(actor.get("name").split("/"))
                         else:
                             l.append(actor.get("name"))  
                 movie["演员"] = l
