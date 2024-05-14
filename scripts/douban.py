@@ -131,7 +131,9 @@ def insert_movie():
                     for x in subject.get("genres")
                 ]
             if subject.get("actors"):
+                print(f"{subject.get('actors')}")
                 movie["演员"] = [x.get("name").replace(",","") for x in subject.get("actors")[0:100] if x.get("name")]
+                print(f"actor size = {len(movie.get('演员'))}")
             if subject.get("directors"):
                 movie["导演"] = [
                     notion_helper.get_relation_id(
